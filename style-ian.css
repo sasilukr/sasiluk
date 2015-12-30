@@ -20,10 +20,11 @@ table {
 
 table td, table th {
 	border: 2px solid white;
-	width: 15px;
-	height: 15px;
-	font-size: 10px;
+	width: 18px;
+    height: 18px;
+    font-size: 12px;
     overflow: hidden;
+    line-height: 0px;
 }
 
 table caption {
