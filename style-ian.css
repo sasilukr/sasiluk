@@ -1,0 +1,63 @@
+body {
+	  font-family: "Courier";
+	text-align: center;
+	width: 100%;
+    height: 100%
+/*	  background: url('images/cork_board.jpg'); */
+}
+table {
+	background-color: #F3EFF0;
+	color: white;
+	table-layout: fixed;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    border-collapse: collapse;
+    border-style: hidden;
+}
+
+table td, table th {
+	border: 2px solid white;
+	width: 15px;
+	height: 15px;
+	font-size: 10px;
+    overflow: hidden;
+}
+
+table caption {
+	color: #DCDCDC;
+}
+
+#mainBody {
+	text-align: center;
+	padding-top: 150px;
+}
+
+#loading {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+}
+
+.sasian-calendar {
+	display: inline-table;
+	border-right: 1px;
+}
+
+.filler {
+	background-color: #402D30;
+}
+
+.flipped-100, .level-3 {
+	background-color: #FD95A3;
+}
+
+.flipped-80, .level-2 { /* 80%*/
+	background-color: #FFB6C1;
+}
+
+.flipped-10, .level-1 {
+	background-color: #FDD6DB;
+}
