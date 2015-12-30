@@ -147,4 +147,3 @@ function saveLogData(start, end) {
 		}
 	});
 }
-
