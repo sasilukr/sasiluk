@@ -1,0 +1,60 @@
+body{
+  background:  url('images/lined_paper.png');
+  padding: 10px;
+} 
+
+p {
+  font-family: "Maven Pro";
+}
+
+.animation_name {
+  color: #000; 
+  font-family: "Courier";
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 30em;
+  font-weight: bold;
+  animation: type 5s steps(60, end); 
+}
+
+.animation_name:nth-child(2){
+  animation: type2 7s steps(60, end);
+}
+
+p a{
+  color: #000; 
+  text-decoration: none;
+}
+
+p a:hover {
+  color: grey;
+}
+
+span{
+  animation: blink 1s infinite;
+}
+
+@keyframes type{ 
+  from { width: 0; } 
+} 
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{width: 100;}
+} 
+
+@keyframes blink{
+  to{opacity: .0;}
+}
+
+.activity_list>p {
+  color:#000;
+  opacity: .2;
+}
+
+.activity_list>p a:hover {
+  color: #000;
+}
+
