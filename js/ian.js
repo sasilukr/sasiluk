@@ -9,7 +9,7 @@ $(document).ready(function(){
   	$(".sasian-calendar>tbody>tr>td").hover(
   		function(){
 	  		var date = ($(this).attr("dateOfMonth"));
-	  		if ( !($(this).hasClass("flipped")) ) {
+	  		if ( !$(this).hasClass("filler") && !($(this).hasClass("flipped")) ) {
 	  			$(this).addClass("flipped");
 	  			$(this).text(date);
 	  			// TODO decide which color to apply
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 	  		} 
 	    },function(){
-	  		if ( $(this).hasClass("flipped") ) {
+	  		if ( !$(this).hasClass("filler") && $(this).hasClass("flipped") ) {
 				$(this).removeClass("flipped");
 				$(this).removeClass("flipped-10");
 				$(this).removeClass("flipped-80");
