@@ -74,9 +74,14 @@ function createCalendar() {
 				dayOfWeekLastDate++;
 			}
 
+
 			(tbodyDiv).append(trDiv);
 			(tableDiv).append((tbodyDiv));
 			$("#mainBody").append((tableDiv));
+
+			if ( j % 4 == 0 ) {
+			$("#mainBody").append(("<br/>"));
+			}
 
 		}
 	}

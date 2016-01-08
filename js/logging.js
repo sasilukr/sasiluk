@@ -7,7 +7,7 @@ var parseLogUserIdKey = "userId";
 
 var lastLog;
 $(document).ready(function(){
-	
+	readLogData();
 	loadLastTimestamp();
 
 	$("#loading").hide();
@@ -26,7 +26,7 @@ $(document).ready(function(){
 function saveStartTime() {
 
 	var startTimestamp = $("#timestamp").val();
-	var start = moment(startTimestamp).toDate();
+	var start = moment(startTimestamp).tz("America/Los_Angeles").toDate();
 	var log = new LogParseTable();
 	log.set(parseLogUserIdKey, 15);
 	log.set(parseLogStartKey, start);
@@ -45,7 +45,7 @@ function saveStartTime() {
 function saveEndTime() {
 
 	var endTimestamp = $("#timestamp").val();
-	var end = moment(endTimestamp).toDate();
+	var end = moment(endTimestamp).tz("America/Los_Angeles").toDate();
 	if ( lastLog ) {
 		lastLog.set(parseLogEndKey, end);
 
@@ -88,4 +88,31 @@ function refreshView() {
 	} else {
 		$("#submitButton").val("Start");
 	}
+}
+
+
+function readLogData() {
+	var query = new Parse.Query(LogParseTable);
+	query.equalTo(parseLogUserIdKey, 15);
+	query.descending(parseLogStartKey);
+	query.limit(5)
+	query.find({
+	  success: function(results) {
+	    console.log("Successfully retrieved " + results.length);
+	    historyLog = results;
+	    for (var i = 0; i < results.length; i++) {
+	    	var object = results[i];
+	    	var start = object.get('start');
+	    	var end = object.get('end');
+	    	var startString = moment(start).format("YYYY-MM-DD HH:mm");
+	    	var endString = moment(end).format("YYYY-MM-DD HH:mm");
+	    	var hourDiff = moment(end).diff(moment(start), 'hours');
+	    	$("#summaryLog").append("<p>" + startString + " to " + endString + "</p>")
+	    }
+	  },
+	  error: function(error) {
+	    console.log("Error: " + error.code + " " + error.message);
+	  }
+	});
+
 }

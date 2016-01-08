@@ -42,6 +42,9 @@ table caption {
 	left: 50%;
 }
 
+.last-month {
+	clear: both;
+}
 .sasian-calendar {
 	display: inline-table;
 	border-right: 1px;
